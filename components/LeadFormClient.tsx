@@ -107,7 +107,7 @@ export function LeadFormClient() {
               onChange={handleChange}
               aria-invalid={Boolean(errors.fullName)}
               aria-describedby={errors.fullName ? "fullName-error" : undefined}
-              className="h-12 w-full rounded-2xl border border-border bg-white px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
+              className="h-12 w-full rounded-2xl border border-border bg-surface-soft px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
               placeholder="Jordan Rivera"
             />
             {errors.fullName ? (
@@ -127,7 +127,7 @@ export function LeadFormClient() {
               onChange={handleChange}
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? "email-error" : undefined}
-              className="h-12 w-full rounded-2xl border border-border bg-white px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
+              className="h-12 w-full rounded-2xl border border-border bg-surface-soft px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
               placeholder="jordan@example.com"
             />
             {errors.email ? (
@@ -147,7 +147,7 @@ export function LeadFormClient() {
               onChange={handleChange}
               aria-invalid={Boolean(errors.phone)}
               aria-describedby={errors.phone ? "phone-error" : undefined}
-              className="h-12 w-full rounded-2xl border border-border bg-white px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
+              className="h-12 w-full rounded-2xl border border-border bg-surface-soft px-4 text-sm text-charcoal transition-colors duration-300 ease-out placeholder:text-charcoal-soft/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/50"
               placeholder="+1 415 555 0137"
             />
             {errors.phone ? (
@@ -158,7 +158,7 @@ export function LeadFormClient() {
           </label>
         </div>
 
-        <label className="flex items-start gap-3 rounded-2xl border border-border/80 bg-white/75 p-4">
+        <label className="interactive-lift flex items-start gap-3 rounded-2xl border border-border/80 bg-surface-strong/75 p-4">
           <input
             name="consent"
             type="checkbox"

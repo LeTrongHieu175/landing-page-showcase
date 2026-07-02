@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 
+import { ChatWidget } from "@/components/ChatWidget";
+
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -17,6 +19,27 @@ const spaceGrotesk = Space_Grotesk({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://example.com";
+
+const themeScript = `
+(() => {
+  try {
+    const storageKey = "aera-theme";
+    const storedTheme = window.localStorage.getItem(storageKey);
+    const resolvedTheme =
+      storedTheme === "dark" || storedTheme === "light"
+        ? storedTheme
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+    document.documentElement.dataset.theme = resolvedTheme;
+    document.documentElement.style.colorScheme = resolvedTheme;
+  } catch {
+    document.documentElement.dataset.theme = "light";
+    document.documentElement.style.colorScheme = "light";
+  }
+})();
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -61,8 +84,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans text-foreground">{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}
+    >
+      <body className="font-sans text-foreground">
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }

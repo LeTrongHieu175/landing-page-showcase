@@ -24,9 +24,9 @@ export type ButtonProps = ButtonLinkProps | ButtonElementProps;
 
 const variantClasses: Record<ButtonVariant, string> = {
   ghost:
-    "border border-border bg-white/80 text-charcoal shadow-[0_14px_35px_rgba(17,52,61,0.08)] hover:bg-white",
+    "border border-border bg-surface-strong/80 text-charcoal shadow-[0_14px_35px_rgba(17,52,61,0.08)] hover:bg-surface-strong hover:border-mint/30",
   solid:
-    "border border-transparent bg-[linear-gradient(135deg,#17353d,#2f5861)] text-white shadow-[0_18px_40px_rgba(17,52,61,0.18)] hover:-translate-y-0.5 hover:shadow-[0_24px_45px_rgba(17,52,61,0.2)]",
+    "border border-transparent bg-[linear-gradient(135deg,var(--button-solid-start),var(--button-solid-end))] text-white shadow-[0_18px_40px_rgba(17,52,61,0.18)] hover:-translate-y-0.5 hover:shadow-[0_24px_45px_rgba(17,52,61,0.2)] active:translate-y-0 active:scale-[0.985]",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -42,7 +42,7 @@ export function buttonVariants({
   variant?: ButtonVariant;
 }) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70 disabled:pointer-events-none disabled:opacity-70",
+    "interactive-lift inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70 disabled:pointer-events-none disabled:opacity-70",
     sizeClasses[size],
     variantClasses[variant],
   );

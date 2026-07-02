@@ -59,7 +59,7 @@ export function Technology() {
 
         <Reveal delay="medium">
           <div className="surface-panel rounded-[2rem] p-6 sm:p-8">
-            <div className="rounded-[1.6rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(235,247,249,0.92))] p-6">
+            <div className="rounded-[1.6rem] border border-surface-strong/60 bg-[linear-gradient(180deg,var(--panel-gradient-start),var(--panel-gradient-end))] p-6">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-charcoal-soft">
@@ -69,13 +69,13 @@ export function Technology() {
                     Purification in sync with your space
                   </p>
                 </div>
-                <div className="rounded-2xl border border-border/80 bg-white/90 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-success">
+                <div className="rounded-2xl border border-border/80 bg-surface-strong/90 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-success">
                   Auto Mode
                 </div>
               </div>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
-                <div className="rounded-[1.5rem] border border-border/70 bg-white/90 p-5">
+                <div className="interactive-lift rounded-[1.5rem] border border-border/70 bg-surface-strong/90 p-5">
                   <p className="text-xs uppercase tracking-[0.2em] text-charcoal-soft">
                     Air score
                   </p>
@@ -92,7 +92,7 @@ export function Technology() {
                   {appHighlights.map((item) => (
                     <div
                       key={item}
-                      className="rounded-[1.25rem] border border-border/70 bg-white/90 p-4 text-sm leading-7 text-charcoal-soft"
+                      className="interactive-lift rounded-[1.25rem] border border-border/70 bg-surface-strong/90 p-4 text-sm leading-7 text-charcoal-soft"
                     >
                       {item}
                     </div>

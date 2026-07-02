@@ -22,7 +22,7 @@ export function Hero() {
       <div className="shell relative grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div className="space-y-8">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-mint/25 bg-white/80 px-4 py-2 text-sm font-medium text-charcoal-soft shadow-[0_10px_25px_rgba(17,52,61,0.08)]">
+            <div className="interactive-lift inline-flex items-center gap-2 rounded-full border border-mint/25 bg-surface-strong/80 px-4 py-2 text-sm font-medium text-charcoal-soft shadow-[0_10px_25px_rgba(17,52,61,0.08)]">
               <Wind className="h-4 w-4 text-mint-deep" aria-hidden="true" />
               Breathe calmer with intelligent air care.
             </div>
@@ -61,7 +61,7 @@ export function Hero() {
               {trustPoints.map((point) => (
                 <div
                   key={point}
-                  className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/75 px-4 py-2 text-sm text-charcoal-soft"
+                  className="interactive-lift inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface-strong/75 px-4 py-2 text-sm text-charcoal-soft"
                 >
                   <ShieldCheck className="h-4 w-4 text-mint-deep" aria-hidden="true" />
                   {point}
@@ -76,7 +76,7 @@ export function Hero() {
             <div className="absolute inset-x-6 top-6 h-28 rounded-full bg-mint/20 blur-3xl" />
             <div className="absolute -right-10 bottom-4 h-36 w-36 rounded-full bg-sky/20 blur-3xl" />
             <div className="relative grid gap-5">
-              <div className="flex items-start justify-between gap-4 rounded-[1.5rem] border border-white/70 bg-white/85 p-4">
+              <div className="interactive-lift flex items-start justify-between gap-4 rounded-[1.5rem] border border-surface-strong/60 bg-surface-strong/85 p-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-charcoal-soft">
                     Live air score
@@ -91,7 +91,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(235,247,249,0.95))] p-4 sm:p-5">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-surface-strong/60 bg-[linear-gradient(180deg,var(--panel-gradient-start),var(--panel-gradient-end))] p-4 sm:p-5">
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-[radial-gradient(circle_at_bottom,rgba(102,215,186,0.26),transparent_70%)]" />
                 <Image
                   src="/images/product.webp"
@@ -99,7 +99,7 @@ export function Hero() {
                   width={880}
                   height={1120}
                   priority
-                  className="relative mx-auto h-auto w-full max-w-[23rem]"
+                  className="float-soft relative mx-auto h-auto w-full max-w-[23rem]"
                   sizes="(max-width: 768px) 90vw, 28rem"
                 />
               </div>
@@ -108,7 +108,7 @@ export function Hero() {
                 {quickStats.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-[1.4rem] border border-white/70 bg-white/85 p-4"
+                    className="interactive-lift rounded-[1.4rem] border border-surface-strong/60 bg-surface-strong/85 p-4"
                   >
                     <p className="text-xs uppercase tracking-[0.22em] text-charcoal-soft">
                       {item.label}

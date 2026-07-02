@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -71,7 +72,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 border-b border-border/80 bg-[rgba(248,254,255,0.94)] backdrop-blur-xl md:bg-white/70"
+      className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl"
     >
       <div className="shell relative py-3 md:py-4">
         <div className="flex items-center justify-between gap-4 md:gap-6">
@@ -98,29 +99,32 @@ export function Header() {
             </div>
           </a>
 
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-white/80 text-charcoal shadow-[0_12px_30px_rgba(17,52,61,0.08)] transition-colors duration-300 ease-out hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70 md:hidden"
-            aria-controls={menuId}
-            aria-expanded={isMenuOpen}
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setIsMenuOpen((open) => !open)}
-          >
-            {isMenuOpen ? (
-              <X className="h-5 w-5" aria-hidden="true" />
-            ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            )}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-surface-strong/80 text-charcoal shadow-[0_12px_30px_rgba(17,52,61,0.08)] transition-colors duration-300 ease-out hover:bg-surface-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70 md:hidden"
+              aria-controls={menuId}
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              {isMenuOpen ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
 
-          <div className="hidden md:flex md:items-center md:gap-5">
+          <div className="hidden md:flex md:items-center md:gap-4">
             <nav aria-label="Primary navigation">
               <ul className="flex items-center gap-2 text-sm font-medium text-charcoal-soft md:gap-3">
                 {navItems.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="inline-flex rounded-full px-3 py-2 transition-colors duration-300 ease-out hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70"
+                      className="interactive-lift inline-flex rounded-full px-3 py-2 transition-colors duration-300 ease-out hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70"
                     >
                       {item.label}
                     </a>
@@ -128,6 +132,8 @@ export function Header() {
                 ))}
               </ul>
             </nav>
+
+            <ThemeToggle />
 
             <a
               href="#lead-form"
@@ -140,14 +146,14 @@ export function Header() {
 
         {isMenuOpen ? (
           <div className="absolute inset-x-0 top-full z-10 mt-3 md:hidden">
-            <div className="rounded-[1.5rem] border border-border/90 bg-[linear-gradient(180deg,rgba(248,254,255,0.985),rgba(243,250,252,0.975))] p-3 shadow-[0_28px_65px_rgba(17,52,61,0.16)]">
+            <div className="rounded-[1.5rem] border border-border/90 bg-[linear-gradient(180deg,var(--panel-gradient-start),var(--panel-gradient-end))] p-3 shadow-[0_28px_65px_rgba(17,52,61,0.16)]">
               <nav id={menuId} aria-label="Mobile primary navigation">
                 <ul className="flex flex-col gap-1">
                   {navItems.map((item) => (
                     <li key={item.label}>
                       <a
                         href={item.href}
-                        className="flex min-h-11 items-center rounded-[1rem] px-4 py-3 text-base font-medium text-charcoal-soft transition-colors duration-300 ease-out hover:bg-white hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70"
+                        className="flex min-h-11 items-center rounded-[1rem] px-4 py-3 text-base font-medium text-charcoal-soft transition-colors duration-300 ease-out hover:bg-surface-strong hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70"
                         onClick={closeMenu}
                       >
                         {item.label}

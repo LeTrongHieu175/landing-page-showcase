@@ -29,7 +29,7 @@ export function Specs() {
           <div className="surface-panel overflow-hidden rounded-[2rem]">
             <table className="min-w-full border-separate border-spacing-0 text-left">
               <thead>
-                <tr className="bg-white/85">
+                <tr className="bg-surface-strong/85">
                   <th className="border-b border-border px-6 py-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-charcoal-soft">
                     Specification
                   </th>
@@ -40,7 +40,10 @@ export function Specs() {
               </thead>
               <tbody>
                 {specs.map((item, index) => (
-                  <tr key={item.label} className={index % 2 === 0 ? "bg-white/70" : "bg-surface-muted/60"}>
+                  <tr
+                    key={item.label}
+                    className={index % 2 === 0 ? "bg-surface-strong/70" : "bg-surface-muted/60"}
+                  >
                     <th
                       scope="row"
                       className="border-b border-border/80 px-6 py-4 text-sm font-semibold text-charcoal"

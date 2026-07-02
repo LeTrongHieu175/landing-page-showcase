@@ -20,15 +20,15 @@ function LeadFormSkeleton() {
         <div className="grid gap-5 sm:grid-cols-2">
           {Array.from({ length: 4 }).map((_, index) => (
             <div key={index} className={index === 0 ? "space-y-2 sm:col-span-2" : "space-y-2"}>
-              <div className="h-4 w-24 rounded-full bg-surface-muted" />
-              <div className="h-12 rounded-2xl bg-surface-muted" />
+              <div className="skeleton-shimmer h-4 w-24 rounded-full bg-surface-muted" />
+              <div className="skeleton-shimmer h-12 rounded-2xl bg-surface-muted" />
             </div>
           ))}
         </div>
-        <div className="h-20 rounded-2xl bg-surface-muted" />
+        <div className="skeleton-shimmer h-20 rounded-2xl bg-surface-muted" />
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="h-12 w-40 rounded-full bg-surface-muted" />
-          <div className="h-4 w-48 rounded-full bg-surface-muted" />
+          <div className="skeleton-shimmer h-12 w-40 rounded-full bg-surface-muted" />
+          <div className="skeleton-shimmer h-4 w-48 rounded-full bg-surface-muted" />
         </div>
       </div>
     </Card>
