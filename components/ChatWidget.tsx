@@ -109,9 +109,9 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-[60] flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 sm:right-6 sm:bottom-6">
+    <div className="fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-[60] flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 sm:right-6 sm:bottom-6">
       {isOpen ? (
-        <div className="surface-panel w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-[1.75rem] border border-border/80 bg-surface-strong/92 shadow-[0_28px_80px_rgba(5,18,24,0.24)] backdrop-blur-2xl">
+        <div className="surface-panel w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-[1.75rem] border border-border/80 bg-surface-strong/92 shadow-[0_28px_80px_rgba(5,18,24,0.24)] backdrop-blur-2xl sm:w-[min(24rem,calc(100vw-3rem))]">
           <div className="flex items-start justify-between gap-4 border-b border-border/70 bg-[linear-gradient(135deg,var(--chat-head-start),var(--chat-head-end))] px-5 py-4">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-mint/20 bg-surface-strong/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal-soft">
@@ -201,7 +201,7 @@ export function ChatWidget() {
           </div>
         </div>
       ) : (
-        <div className="rounded-full border border-border/80 bg-surface-strong/90 px-4 py-2 text-xs font-medium text-charcoal-soft shadow-[0_16px_40px_rgba(17,52,61,0.12)] backdrop-blur-xl">
+        <div className="hidden rounded-full border border-border/80 bg-surface-strong/90 px-4 py-2 text-xs font-medium text-charcoal-soft shadow-[0_16px_40px_rgba(17,52,61,0.12)] backdrop-blur-xl sm:block">
           Ask about filters, room size, or app control
         </div>
       )}
@@ -210,13 +210,13 @@ export function ChatWidget() {
         type="button"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Minimize chatbot" : "Open product chatbot"}
-        className="interactive-lift inline-flex min-h-14 items-center gap-3 rounded-full border border-transparent bg-[linear-gradient(135deg,var(--button-solid-start),var(--button-solid-end))] px-5 py-1 text-white shadow-[0_20px_50px_rgba(5,18,24,0.28)] transition-all duration-300 ease-out hover:shadow-[0_24px_60px_rgba(5,18,24,0.34)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70"
+        className="interactive-lift inline-flex h-14 w-14 items-center justify-center rounded-full border border-transparent bg-[linear-gradient(135deg,var(--button-solid-start),var(--button-solid-end))] text-white shadow-[0_20px_50px_rgba(5,18,24,0.28)] transition-all duration-300 ease-out hover:shadow-[0_24px_60px_rgba(5,18,24,0.34)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/70 sm:min-h-14 sm:w-auto sm:gap-3 sm:px-5 sm:py-1"
         onClick={() => setIsOpen((current) => !current)}
       >
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14">
           <MessageSquareMore className="h-5 w-5" aria-hidden="true" />
         </span>
-        <span className="text-left">
+        <span className="hidden text-left sm:block">
           <span className="block text-sm font-semibold">Product chatbot</span>
           <span className="block text-xs text-white/80">
             {isOpen ? "Tap to minimize" : "Get instant answers"}
